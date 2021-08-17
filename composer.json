@@ -10,11 +10,14 @@
     }
   ],
   "require": {
-    "php": "^7.3|^8.0",
+    "php": "^8.0",
     "ext-json": "*",
     "laravel/framework": "^8.0",
     "paulhenri-l/laravel-engine-core": "^1.1",
-    "monolog/monolog": "^2.3"
+    "monolog/monolog": "^2.3",
+    "aws/aws-sdk-php": "^3.190",
+    "bref/bref": "^1.2",
+    "league/flysystem-aws-s3-v3": "^1.0"
   },
   "require-dev": {
     "orchestra/testbench": "^6.0",
