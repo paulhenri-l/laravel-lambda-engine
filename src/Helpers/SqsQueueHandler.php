@@ -17,17 +17,23 @@ use Throwable;
 
 class SqsQueueHandler extends SqsHandler
 {
-    protected Container $container;
+    /** @var Container */
+    protected $container;
 
-    protected SqsClient $sqs;
+    /** @var SqsClient */
+    protected $sqs;
 
-    protected Dispatcher $events;
+    /** @var Dispatcher  */
+    protected $events;
 
-    protected ExceptionHandler $exceptions;
+    /** @var ExceptionHandler */
+    protected $exceptions;
 
-    protected string $connectionName;
+    /** @var string */
+    protected $connectionName;
 
-    protected string $queue;
+    /** @var string */
+    protected $queue;
 
     public function __construct(
         Container $container,

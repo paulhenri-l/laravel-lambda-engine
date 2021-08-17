@@ -10,7 +10,7 @@
     }
   ],
   "require": {
-    "php": "^8.0",
+    "php": "^7.3|^8.0",
     "ext-json": "*",
     "laravel/framework": "^8.0",
     "paulhenri-l/laravel-engine-core": "^1.1",
