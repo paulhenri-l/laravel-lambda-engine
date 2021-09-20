@@ -16,7 +16,7 @@
     "paulhenri-l/laravel-engine-core": "^1.1",
     "monolog/monolog": "^2.3",
     "aws/aws-sdk-php": "^3.190",
-    "bref/bref": "^1.2",
+    "bref/bref": "1.2.*",
     "league/flysystem-aws-s3-v3": "^1.0"
   },
   "require-dev": {
