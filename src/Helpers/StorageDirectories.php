@@ -33,6 +33,7 @@ THE SOFTWARE.
 class StorageDirectories
 {
     public const PATH = '/tmp/storage';
+    public const PSYSH_PATH = '/tmp/psysh';
 
     public static function create(): void
     {
@@ -41,12 +42,14 @@ class StorageDirectories
             self::PATH . '/bootstrap/cache',
             self::PATH . '/framework/cache',
             self::PATH . '/framework/views',
-            '/tmp/psysh/config',
+            self::PSYSH_PATH . '/data',
+            self::PSYSH_PATH . '/config',
+            self::PSYSH_PATH . '/runtime',
         ];
 
         foreach ($directories as $directory) {
             if (!is_dir($directory)) {
-                fwrite(STDERR, "Creating storage directory: $directory" . PHP_EOL);
+                fwrite(STDERR, "Creating directory: $directory" . PHP_EOL);
                 mkdir($directory, 0755, true);
             }
         }
