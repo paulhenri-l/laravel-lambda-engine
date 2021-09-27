@@ -41,6 +41,7 @@ class StorageDirectories
             self::PATH . '/bootstrap/cache',
             self::PATH . '/framework/cache',
             self::PATH . '/framework/views',
+            '/tmp/psysh/config',
         ];
 
         foreach ($directories as $directory) {
