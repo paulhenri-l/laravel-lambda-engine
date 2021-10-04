@@ -1,8 +1,9 @@
 <?php
 
-namespace PaulhenriL\LaravelLambdaEngine\Helpers;
+namespace PaulhenriL\LaravelLambdaEngine;
 
 use Aws\Ssm\SsmClient;
+use Illuminate\Support\Str;
 
 /*
 The MIT License (MIT)
@@ -77,6 +78,8 @@ class SecretsLoader
         foreach ($secrets as $secret) {
             $name = explode('/', $secret['Name']);
             $name = array_pop($name);
+            $name = Str::snake($name);
+            $name = mb_strtoupper($name);
 
             $parsedSecrets[$name] = $secret['Value'];
         }

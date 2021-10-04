@@ -1,6 +1,6 @@
 <?php
 
-namespace PaulhenriL\LaravelLambdaEngine\Log;
+namespace PaulhenriL\LaravelLambdaEngine;
 
 class JsonFormatter extends \Monolog\Formatter\JsonFormatter
 {

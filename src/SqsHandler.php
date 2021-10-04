@@ -1,11 +1,10 @@
 <?php
 
-namespace PaulhenriL\LaravelLambdaEngine\Helpers;
+namespace PaulhenriL\LaravelLambdaEngine;
 
 use Aws\Sqs\SqsClient;
 use Bref\Context\Context;
 use Bref\Event\Sqs\SqsEvent;
-use Bref\Event\Sqs\SqsHandler;
 use Illuminate\Container\Container;
 use Illuminate\Contracts\Debug\ExceptionHandler;
 use Illuminate\Contracts\Events\Dispatcher;
@@ -15,7 +14,7 @@ use Illuminate\Queue\Events\JobProcessing;
 use Illuminate\Queue\Jobs\SqsJob;
 use Throwable;
 
-class SqsQueueHandler extends SqsHandler
+class SqsHandler extends \Bref\Event\SqsHandler
 {
     /** @var Container */
     protected $container;

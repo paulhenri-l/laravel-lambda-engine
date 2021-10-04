@@ -1,8 +1,6 @@
 <?php
 
-namespace PaulhenriL\LaravelLambdaEngine\Concerns;
-
-use Illuminate\Support\Facades\Config;
+namespace PaulhenriL\LaravelLambdaEngine;
 
 /*
 The MIT License (MIT)
@@ -32,23 +30,28 @@ THE SOFTWARE.
  * @author Taylor Otwell <taylor@laravel.com>
  * @author Paul-Henri Leobon
  */
-trait ConfiguresDynamoDb
+class StorageDirectories
 {
-    protected function ensureDynamoDbIsConfigured()
-    {
-        // Ensure we are running on Lambda...
-        if (!isset($_ENV['LAMBDA_TASK_ROOT'])) {
-            return;
-        }
+    public const PATH = '/tmp/storage';
+    public const PSYSH_PATH = '/tmp/psysh';
 
-        Config::set('cache.stores.dynamodb', array_merge([
-            'driver' => 'dynamodb',
-            'key' => $_ENV['AWS_ACCESS_KEY_ID'] ?? null,
-            'secret' => $_ENV['AWS_SECRET_ACCESS_KEY'] ?? null,
-            'token' => $_ENV['AWS_SESSION_TOKEN'] ?? null,
-            'region' => $_ENV['AWS_DEFAULT_REGION'] ?? 'us-east-1',
-            'table' => $_ENV['DYNAMODB_CACHE_TABLE'] ?? 'cache',
-            'endpoint' => $_ENV['DYNAMODB_ENDPOINT'] ?? null,
-        ], Config::get('cache.stores.dynamodb') ?? []));
+    public static function create(): void
+    {
+        $directories = [
+            self::PATH . '/app',
+            self::PATH . '/bootstrap/cache',
+            self::PATH . '/framework/cache',
+            self::PATH . '/framework/views',
+            self::PSYSH_PATH . '/data',
+            self::PSYSH_PATH . '/config',
+            self::PSYSH_PATH . '/runtime',
+        ];
+
+        foreach ($directories as $directory) {
+            if (!is_dir($directory)) {
+                fwrite(STDERR, "Creating directory: $directory" . PHP_EOL);
+                mkdir($directory, 0755, true);
+            }
+        }
     }
 }
