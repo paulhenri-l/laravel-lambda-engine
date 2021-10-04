@@ -14,7 +14,7 @@ use Illuminate\Queue\Events\JobProcessing;
 use Illuminate\Queue\Jobs\SqsJob;
 use Throwable;
 
-class SqsHandler extends \Bref\Event\SqsHandler
+class SqsHandler extends \Bref\Event\Sqs\SqsHandler
 {
     /** @var Container */
     protected $container;
