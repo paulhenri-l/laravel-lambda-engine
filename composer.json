@@ -1,7 +1,7 @@
 {
   "name": "paulhenri-l/laravel-lambda-engine",
   "description": "A Laravel package to help you create Laravel packages",
-  "type": "project",
+  "type": "library",
   "license": "MIT",
   "authors": [
     {
