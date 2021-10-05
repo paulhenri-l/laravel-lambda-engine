@@ -78,7 +78,7 @@ class SecretsLoader
         foreach ($secrets as $secret) {
             $name = explode('/', $secret['Name']);
             $name = array_pop($name);
-            $name = Str::snake($name);
+            $name = Str::snake(Str::camel($name)); // camel to snake is needed
             $name = mb_strtoupper($name);
 
             $parsedSecrets[$name] = $secret['Value'];
