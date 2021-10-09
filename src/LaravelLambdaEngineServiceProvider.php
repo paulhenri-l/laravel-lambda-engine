@@ -26,8 +26,9 @@ class LaravelLambdaEngineServiceProvider extends EngineServiceProvider
             '127.0.0.1', '0.0.0.0/0', '2000:0:0:0:0:0:0:0/3'
         ]));
 
-        Config::set('trustedproxy.headers', Config::get('trustedproxy.headers', [
+        Config::set('trustedproxy.headers', Config::get(
+            'trustedproxy.headers',
             Request::HEADER_X_FORWARDED_FOR | Request::HEADER_X_FORWARDED_HOST | Request::HEADER_X_FORWARDED_PORT | Request::HEADER_X_FORWARDED_PROTO
-        ]));
+        ));
     }
 }

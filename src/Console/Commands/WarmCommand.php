@@ -21,7 +21,7 @@ class WarmCommand extends Command
         $this->info("Will send {$warmCount} warming requests");
 
         for ($i = 0; $i < $warmCount; $i++) {
-            $this->comment(" - {$i} request sent");
+            $this->comment(" - [$i] request sent");
             $requests[$i] = $client->getAsync(
                 route('laravel_lambda_engine.lambda.warm')
             );
@@ -31,7 +31,7 @@ class WarmCommand extends Command
         $responses = Promise\Utils::settle($requests)->wait();
 
         foreach ($responses as $k => $v) {
-            $this->comment(" - $k state : {$v['state']}");
+            $this->comment(" - [$k] state : {$v['state']}");
         }
 
         $this->info("Done.");
