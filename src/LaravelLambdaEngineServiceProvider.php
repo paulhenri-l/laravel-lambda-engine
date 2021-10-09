@@ -12,6 +12,7 @@ class LaravelLambdaEngineServiceProvider extends EngineServiceProvider
 {
     public function register()
     {
+        $this->registerConfig();
         $this->configureTrustedProxy();
     }
 
