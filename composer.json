@@ -16,7 +16,9 @@
     "ext-json": "*",
     "laravel/framework": "^8.0",
     "monolog/monolog": "^2.3",
-    "paulhenri-l/laravel-engine-core": "^1.1"
+    "paulhenri-l/laravel-engine-core": "^1.1",
+    "league/flysystem-aws-s3-v3": "^1.0",
+    "guzzlehttp/guzzle": "^7.3"
   },
   "require-dev": {
     "orchestra/testbench": "^6.0",

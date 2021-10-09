@@ -4,6 +4,7 @@ namespace PaulhenriL\LaravelLambdaEngine;
 
 use Illuminate\Support\Facades\Config;
 use PaulhenriL\LaravelEngineCore\EngineServiceProvider;
+use PaulhenriL\LaravelLambdaEngine\Console\Commands\WarmCommand;
 use Symfony\Component\HttpFoundation\Request;
 
 class LaravelLambdaEngineServiceProvider extends EngineServiceProvider
@@ -11,6 +12,12 @@ class LaravelLambdaEngineServiceProvider extends EngineServiceProvider
     public function register()
     {
         $this->configureTrustedProxy();
+    }
+
+    public function boot()
+    {
+        $this->loadWebRoutes();
+        $this->loadCommand(WarmCommand::class);
     }
 
     protected function configureTrustedProxy()
