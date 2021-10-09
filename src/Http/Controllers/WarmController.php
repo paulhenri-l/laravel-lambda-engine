@@ -8,7 +8,7 @@ class WarmController
 {
     const FIVE_HUNDRED_MILLISECONDS = 500000;
 
-    public function __invoke()
+    public function index()
     {
         usleep(static::FIVE_HUNDRED_MILLISECONDS);
 
