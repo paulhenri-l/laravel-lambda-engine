@@ -6,11 +6,13 @@ use Illuminate\Http\JsonResponse;
 
 class WarmController
 {
-    const FIVE_HUNDRED_MILLISECONDS = 500000;
+    const ONE_MILLISECOND = 1000;
 
     public function index()
     {
-        usleep(static::FIVE_HUNDRED_MILLISECONDS);
+        usleep(
+            static::ONE_MILLISECOND * config('laravel_lambda_engine.warmer.latency', 50)
+        );
 
         return new JsonResponse([
             'code' => 0,

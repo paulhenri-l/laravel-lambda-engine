@@ -8,7 +8,7 @@ use GuzzleHttp\Promise;
 
 class WarmCommand extends Command
 {
-    protected $signature = 'lambda-engine:warm {count?}';
+    protected $signature = 'laravel-lambda-engine:warm {count?}';
 
     protected $description = 'PreWarm lambda';
 
