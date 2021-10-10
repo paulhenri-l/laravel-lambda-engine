@@ -2,6 +2,6 @@
 
 return [
     'warmer' => [
-        'latency' => 50, // miliseconds
+        'latency' => 50, // milliseconds
     ]
 ];
