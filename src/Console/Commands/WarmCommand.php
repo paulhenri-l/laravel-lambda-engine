@@ -27,7 +27,7 @@ class WarmCommand extends Command
                 'LogType' => 'none',
                 'Payload' => json_encode([
                     'body' => '',
-                    'path' => route('laravel_lambda_engine.lambda.warm'),
+                    'path' => route('laravel_lambda_engine.lambda.warm', [], false),
                     'httpMethod' => 'GET',
                 ]),
             ]);
