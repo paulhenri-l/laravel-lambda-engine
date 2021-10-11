@@ -24,7 +24,6 @@ class WarmCommand extends Command
             $requests[$i] = $client->invokeAsync([
                 'FunctionName' => $function,
                 'invocationType' => 'event',
-                'LogType' => 'none',
                 'Payload' => json_encode([
                     'body' => '',
                     'path' => route('laravel_lambda_engine.lambda.warm', [], false),
