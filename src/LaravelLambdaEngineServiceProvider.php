@@ -19,6 +19,7 @@ class LaravelLambdaEngineServiceProvider extends EngineServiceProvider
     public function boot()
     {
         $this->loadWebRoutes();
+        $this->loadApiRoutes();
         $this->loadCommand(WarmCommand::class);
         $this->addInstallCommand(PublishConfig::class);
     }
