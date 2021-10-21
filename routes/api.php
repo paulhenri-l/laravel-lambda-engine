@@ -5,6 +5,6 @@ use PaulhenriL\LaravelLambdaEngine\Http\Controllers;
 
 if (config('laravel_lambda_engine.signed_upload.enable')) {
     Route::middleware(config('laravel_lambda_engine.signed_upload.middlewares'))
-        ->get('/signed_upload_url', [Controllers\SignedUploadUrlController::class, 'store'])
+        ->post('/signed_upload_url', [Controllers\SignedUploadUrlController::class, 'store'])
         ->name('signed_upload_url.store');
 }
